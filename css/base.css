@@ -1,0 +1,190 @@
+/* ═══ RESET · 기본 타이포 · 유틸 ═══ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.26;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: 900;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 900;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+}
+
+p {
+  word-break: keep-all;
+}
+
+strong {
+  font-weight: 700;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.18);
+}
+
+/* ═══ 유틸 ═══ */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: var(--sec-y) 0;
+}
+
+.section--raise {
+  background: var(--bg-raise);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-cap);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: var(--violet);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--grad);
+}
+
+.sec-head {
+  max-width: 660px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.sec-head p {
+  margin-top: 14px;
+  color: var(--text-2);
+  font-size: var(--fs-lead);
+}
+
+/* 그라데이션 강조 텍스트 */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 라임 마커 하이라이트 (다크 글자 전용) */
+.mark-lime {
+  background: linear-gradient(transparent 58%, var(--lime) 58%, var(--lime) 92%, transparent 92%);
+}
+
+.accent-cyan {
+  color: var(--cyan);
+}
+
+/* 스크롤 리빌 — JS 활성(html.js) 시에만 숨김 → JS 실패해도 콘텐츠 항상 보임 */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+html.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+html.js .reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+html.js .reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+html.js .reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════
+   써포츠 홈페이지 v3 — 디자인 토큰 (라이트 · 에너지 테마)
+   규칙: 보라=브랜드/액션 · 시안=수치/데이터 · 라임=하이라이트 마커(다크 글자와만)
+        그라데이션은 보라→마젠타 1종만 사용 · 한 블록에 액센트 2개까지
+═══════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+
+  /* 배경 계층 */
+  --bg: #f7f8fc;
+  --bg-raise: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fbfaff;
+  --bg-dark: #14121f;
+  --line: #e5e8f0;
+  --line-soft: #edeff5;
+
+  /* 텍스트 */
+  --text: #17181d;
+  --text-2: #555c6b;
+  --text-3: #9aa1b0;
+  --text-on-dark: #f4f3fa;
+  --text-on-dark-2: #b9b5cc;
+
+  /* 액센트 */
+  --violet: #7c3aed;
+  --violet-deep: #6427d8;
+  --violet-2: #a78bfa;
+  --violet-bg: #f3e8ff;
+  --violet-line: #d8b4fe;
+  --grad: linear-gradient(100deg, #7c3aed 10%, #c026d3 90%);
+  --cyan: #0891b2;
+  --cyan-bright: #00f0ff;
+  --cyan-dim: rgba(8, 145, 178, 0.1);
+  --lime: #d4ff00;
+  --on-violet: #ffffff;
+
+  /* 타이포 스케일 */
+  --fs-h1: clamp(2.1rem, 5.2vw, 3.5rem);
+  --fs-h2: clamp(1.55rem, 3.4vw, 2.25rem);
+  --fs-h3: 1.25rem;
+  --fs-lead: clamp(1rem, 1.6vw, 1.15rem);
+  --fs-body: 1rem;
+  --fs-cap: 0.8125rem;
+
+  /* 간격·형태 */
+  --max-w: 1120px;
+  --gutter: 24px;
+  --sec-y: clamp(72px, 10vw, 124px);
+  --r-lg: 22px;
+  --r-md: 14px;
+  --r-pill: 999px;
+
+  --shadow-card: 0 10px 34px rgba(23, 24, 29, 0.1);
+  --shadow-pop: 0 24px 60px rgba(100, 39, 216, 0.16);
+  --ease: cubic-bezier(0.22, 0.7, 0.3, 1);
+}
