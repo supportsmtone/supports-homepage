@@ -7,8 +7,10 @@
   <meta name="description" content="배드민턴부터 클라이밍까지 12개 종목. 운동 모임, 자동 대진표, 대회 참가와 실시간 점수, 700개+ 구장 정보까지. 문자 인증으로 1분 만에 시작하세요.">
   <meta property="og:title" content="써포츠 — 생활스포츠 매칭 플랫폼">
   <meta property="og:description" content="혼자도 좋지만, 함께라면 더 빛나는 우리들의 플레이. 모임·뽐·대회·구장을 한 앱에서.">
-  <meta property="og:image" content="http://211.188.61.17/assets/og_ci.png">
+  <meta property="og:image" content="https://supportsmt.com/assets/og_ci.png">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://supportsmt.com/">
+  <link rel="canonical" href="https://supportsmt.com/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +54,116 @@
       .tab-strip { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 560px) { .tab-strip { grid-template-columns: 1fr; } }
+
+    /* index 전용 — 대회 포스터 팝업 */
+    .poster-pop__card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: min(440px, 92vw);
+      max-height: min(88vh, 980px);
+      background: var(--bg-raise);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-pop);
+    }
+    .poster-pop__head {
+      position: relative;
+      padding: 18px 46px 15px 20px;
+      background: linear-gradient(120deg, #6a3cff 0%, #a21caf 55%, #d946ef 100%);
+      color: #fff;
+      text-align: left;
+      overflow: hidden;
+    }
+    .poster-pop__head h3 {
+      font-size: clamp(0.98rem, 3.6vw, 1.12rem);
+      font-weight: 900;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      margin: 0 0 4px;
+      color: #fff;
+    }
+    .poster-pop__head p {
+      font-size: clamp(0.82rem, 3vw, 0.9rem);
+      font-weight: 500;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .poster-pop__head .pop-emoji {
+      display: inline-block;
+      animation: popBounce 1.6s ease-in-out infinite;
+    }
+    @keyframes popBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      30% { transform: translateY(-4px) rotate(-8deg); }
+      60% { transform: translateY(0) rotate(6deg); }
+    }
+    .poster-pop__card a { display: block; line-height: 0; flex: 1 1 auto; min-height: 0; }
+    .poster-pop__card .poster-pop__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: min(66vh, 820px);
+      object-fit: contain;
+      background: #17332a;
+    }
+    /* 콘페티 (축하 액션) */
+    .poster-pop__confetti {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 3;
+    }
+    .poster-pop__confetti i {
+      position: absolute;
+      top: -14px;
+      width: 9px;
+      height: 14px;
+      border-radius: 2px;
+      opacity: 0.95;
+      animation: confettiFall linear forwards;
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotateZ(0deg) rotateY(0deg); opacity: 0.95; }
+      80% { opacity: 0.9; }
+      100% { transform: translateY(112vh) rotateZ(560deg) rotateY(720deg); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .poster-pop__confetti { display: none; }
+      .poster-pop__head .pop-emoji { animation: none; }
+    }
+    .poster-pop__close {
+      position: absolute;
+      top: 10px; right: 10px;
+      width: 38px; height: 38px;
+      border: 0; border-radius: 50%;
+      background: rgba(23, 24, 29, 0.55);
+      color: #fff;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .poster-pop__close:hover { background: rgba(23, 24, 29, 0.8); }
+    .poster-pop__bar {
+      display: flex;
+      background: var(--bg-raise);
+      border-top: 1px solid var(--line, #e7e9f2);
+    }
+    .poster-pop__btn {
+      flex: 1;
+      border: 0;
+      background: none;
+      padding: 14px 8px;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+    .poster-pop__btn + .poster-pop__btn { border-left: 1px solid var(--line, #e7e9f2); }
+    .poster-pop__btn--main { color: var(--violet-deep, #6a3cff); }
   </style>
 </head>
 <body data-nav="home">
@@ -422,6 +534,89 @@
   </div>
 </div>
 
+<div class="modal" id="posterModal" role="dialog" aria-modal="true" aria-label="제2회 써포츠 전국 배드민턴 대회 안내">
+  <div class="poster-pop__confetti" id="posterConfetti" aria-hidden="true"></div>
+  <div class="poster-pop__card">
+    <button class="poster-pop__close" type="button" data-poster-close aria-label="팝업 닫기">&#10005;</button>
+    <div class="poster-pop__head">
+      <h3><span class="pop-emoji">🎉</span> 드디어 써포츠가 제2회 전국 배드민턴대회를 진행합니다!</h3>
+      <p>많은 격려와 참여 부탁합니다 🙌</p>
+    </div>
+    <a href="tournaments.html">
+      <img class="poster-pop__img" src="assets/poster_badminton_2026.jpg"
+           alt="제2회 써포츠 전국 배드민턴 대회 포스터 — 2026년 9월 5일(토) 포천 가산문화센터. 접수 8월 3일(월)~8월 28일(금) 써포츠 앱에서, 선착순 150팀, 참가비 팀당 60,000원">
+    </a>
+    <div class="poster-pop__bar">
+      <button type="button" class="poster-pop__btn" data-poster-today>오늘 하루 보지 않기</button>
+      <button type="button" class="poster-pop__btn poster-pop__btn--main" data-poster-close>닫기</button>
+    </div>
+  </div>
+</div>
+
 <script src="js/main.js?v=20260815b" defer></script>
+<script>
+/* 대회 포스터 팝업 — 대회일(2026-09-05) 지나면 자동 미노출, "오늘 하루 보지 않기" localStorage */
+(function () {
+  "use strict";
+  var KEY = "posterHide_badminton_20260905";
+  var modal = document.getElementById("posterModal");
+  if (!modal) return;
+  var today = new Date();
+  var todayStr = today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
+  var expired = todayStr > "2026-09-05";
+  var hiddenToday = false;
+  try { hiddenToday = localStorage.getItem(KEY) === todayStr; } catch (e) {}
+  if (expired || hiddenToday) return;
+
+  function fireConfetti() {
+    var box = document.getElementById("posterConfetti");
+    if (!box) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var colors = ["#7c3aed", "#d946ef", "#f59e0b", "#d8b36a", "#34d399", "#60a5fa", "#f472b6"];
+    var count = 56;
+    for (var i = 0; i < count; i++) {
+      var piece = document.createElement("i");
+      piece.style.left = (Math.random() * 100) + "%";
+      piece.style.background = colors[i % colors.length];
+      piece.style.animationDuration = (3.5 + Math.random() * 3) + "s";
+      piece.style.animationDelay = (Math.random() * 2.5) + "s";
+      var scale = 0.6 + Math.random() * 0.9;
+      piece.style.width = Math.round(9 * scale) + "px";
+      piece.style.height = Math.round(14 * scale) + "px";
+      box.appendChild(piece);
+    }
+    setTimeout(function () { box.innerHTML = ""; }, 9500);
+  }
+  function open() {
+    modal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    fireConfetti();
+    var btn = modal.querySelector("[data-poster-close]");
+    if (btn) btn.focus();
+  }
+  function close() {
+    modal.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) close();
+  });
+  var closers = modal.querySelectorAll("[data-poster-close]");
+  for (var i = 0; i < closers.length; i++) closers[i].addEventListener("click", close);
+  var todayBtn = modal.querySelector("[data-poster-today]");
+  if (todayBtn) {
+    todayBtn.addEventListener("click", function () {
+      try { localStorage.setItem(KEY, todayStr); } catch (e) {}
+      close();
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
+  open();
+})();
+</script>
 </body>
 </html>
