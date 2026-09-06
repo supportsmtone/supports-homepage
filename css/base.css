@@ -208,3 +208,6 @@ th, td {
   overflow-wrap: anywhere;     /* 긴 영문 토큰(URL·괄호 나열)은 강제 분리 */
 }
 th { background: rgba(124, 58, 237, 0.06); font-weight: 700; }
+
+/* 인접한 raise 섹션끼리는 경계선이 겹치지 않도록(1px 이중선 방지) */
+.section--raise + .section--raise { border-top: 0; }
