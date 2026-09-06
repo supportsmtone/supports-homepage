@@ -125,4 +125,46 @@
       })(t);
     }
   }
+
+  // 7) 유튜브 최신 영상 로드 (홈 5개 / 대회탭 20개)
+  var videoRoot = document.querySelector("[data-videos]");
+  if (videoRoot) {
+    var limit = parseInt(videoRoot.getAttribute("data-videos"), 10) || 5;
+    var STATS = "https://supportsmt.com/hp-stats/videos.json";
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+    function card(v) {
+      var dur = v.duration ? '<span class="video-card__dur">' + esc(v.duration) + "</span>" : "";
+      var meta = [];
+      if (v.viewCount > 0) meta.push("조회수 " + esc(v.viewCompact));
+      if (v.publishedAt) meta.push(esc(v.publishedAt));
+      return (
+        '<a class="video-card" href="' + esc(v.url) + '" target="_blank" rel="noopener">' +
+        '<div class="video-card__thumb">' +
+        '<img src="' + esc(v.thumbnail) + '" alt="' + esc(v.title) + '" loading="lazy" ' +
+        'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/' + esc(v.id) + '/hqdefault.jpg\'">' +
+        '<span class="video-card__play"><span></span></span>' + dur + "</div>" +
+        '<div class="video-card__body"><p class="video-card__title">' + esc(v.title) + "</p>" +
+        '<p class="video-card__meta">' + meta.join(" · ") + "</p></div></a>"
+      );
+    }
+    var ctrl = new AbortController();
+    var to = setTimeout(function () { ctrl.abort(); }, 8000);
+    fetch(STATS + "?cb=" + Date.now(), { signal: ctrl.signal })
+      .then(function (r) { clearTimeout(to); if (!r.ok) throw 0; return r.json(); })
+      .then(function (d) {
+        var vids = (d && d.videos) || [];
+        if (!vids.length) throw 0;
+        videoRoot.innerHTML = vids.slice(0, limit).map(card).join("");
+      })
+      .catch(function () {
+        videoRoot.innerHTML =
+          '<div class="video-empty">영상을 불러오지 못했습니다. ' +
+          '<a href="https://www.youtube.com/channel/UCSKQ8RcZ2vwnTKWcPR5_VtA" target="_blank" rel="noopener" style="color:var(--violet);font-weight:700;">유튜브 채널에서 보기 →</a></div>';
+      });
+  }
+
 })();
