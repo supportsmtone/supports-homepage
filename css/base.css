@@ -188,3 +188,23 @@ html.js .reveal:nth-child(4) {
     transform: none;
   }
 }
+
+/* ═══ 표 (약관·개인정보 등 법적 문서) — 소형 화면 가로넘침 방지, 본문 무변경 ═══ */
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 20px;
+  font-size: 0.93em;
+  table-layout: auto;
+}
+th, td {
+  padding: 9px 11px;
+  border: 1px solid var(--line, #e7e9f2);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.55;
+  word-break: keep-all;        /* 한글 단어 단위 줄바꿈 */
+  overflow-wrap: anywhere;     /* 긴 영문 토큰(URL·괄호 나열)은 강제 분리 */
+}
+th { background: rgba(124, 58, 237, 0.06); font-weight: 700; }
