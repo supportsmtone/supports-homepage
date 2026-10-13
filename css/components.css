@@ -758,6 +758,50 @@
   .photo-band img {
     aspect-ratio: 16 / 10;
   }
+
+  /* 모바일: 16/7.2 박스에 배지·제목·설명이 다 안 들어가 위로 잘리던 문제(2026-10-13 QA M-1).
+     사진은 박스 배경으로 깔고, 오버레이를 흐름 안에 두어 최소 4:3 높이 + 글자가 많으면 그만큼 늘어나게 한다. */
+  .event-hero {
+    display: flex;
+    aspect-ratio: auto;
+  }
+
+  .event-hero img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .event-hero__overlay {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* 보완 r2(디자인 검수 M-1·L-1): 글자가 사진 윗부분(밝은 천장)까지 올라가도 대비 유지 */
+  .event-hero__overlay {
+    background: linear-gradient(to top,
+      rgba(14, 12, 24, 0.85) 0%,
+      rgba(14, 12, 24, 0.62) 50%,
+      rgba(14, 12, 24, 0.30) 85%,
+      rgba(14, 12, 24, 0.15) 100%);
+  }
+
+  .event-hero__badge {
+    background: rgba(14, 12, 24, 0.42);
+    border-color: rgba(255, 255, 255, 0.28);
+    text-wrap: balance;
+    word-break: keep-all;
+  }
+}
+
+/* 보완 r2(디자인 검수 M-2): 481~760(가로모드 휴대폰·소형 태블릿)은 4:3 이 과대 → 2:1.
+   aspect-ratio 는 흐름 안 오버레이에만 걸려 최소 높이로만 작동하므로 글자가 길면 늘어나 잘림 0 유지.
+   반드시 위 max-width:760px 블록 뒤에 둔다(명시도 같음 → 순서로 우선). */
+@media (min-width: 481px) and (max-width: 760px) {
+  .event-hero__overlay {
+    aspect-ratio: 2 / 1;
+  }
 }
 
 /* ═══ 문의 모달 ═══ */
