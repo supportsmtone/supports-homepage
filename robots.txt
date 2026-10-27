@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /hp-stats/
+
+Sitemap: https://supportsmt.com/sitemap.xml
