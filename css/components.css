@@ -1354,3 +1354,73 @@
     flex: 1 1 100%;
   }
 }
+
+/* ═══ 2026-11-02 모임 업데이트(앱 7.9.0) 시안 — 최소 추가 ═══ */
+/* 앱바를 잘라낸 앱 화면(780×1552) — 폰 목업 비율을 캡처에 맞춤 */
+.phone--app img {
+  aspect-ratio: 780 / 1552;
+}
+
+/* 원본 비율 앱 화면 일부(폰 폭) */
+.shot-card--phone {
+  max-width: 300px;
+}
+
+/* 업데이트 4가지(회원관리·랜덤 대진표·출석관리·회비 관리) */
+.feat-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.feat-grid .card {
+  padding: 16px 16px 22px;
+}
+
+.feat-grid .shot-card {
+  margin-bottom: 18px;
+  box-shadow: none;
+  border-color: var(--line-soft);
+  border-radius: var(--r-md);
+}
+
+@media (max-width: 1000px) {
+  .feat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .feat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 앱 화면 위쪽 일부만 보이는 폰 목업 — 아래는 흐리게 사라짐 */
+.phone--peek {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent);
+}
+
+.phone--peek img {
+  aspect-ratio: auto;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* 폰 2대 나란히 — 좁은 화면에서 반씩 줄여 가로 넘침 방지 */
+@media (max-width: 600px) {
+  .phone-duo--fit {
+    gap: 12px;
+  }
+  .phone-duo--fit .phone {
+    width: calc(50% - 6px);
+    padding: 8px;
+    border-radius: 28px;
+  }
+  .phone-duo--fit .phone img {
+    border-radius: 21px;
+  }
+}
