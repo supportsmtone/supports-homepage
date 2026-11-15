@@ -1424,3 +1424,59 @@
     border-radius: 21px;
   }
 }
+
+/* ═══ 2026-11-15 클럽 자체대회 사례(#club-event) 시안 — 추가만 ═══ */
+.club-shots {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  margin-top: 26px;
+}
+
+.club-shots .phone-duo {
+  justify-content: center;
+}
+
+.club-shots__beam {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-dark);
+  box-shadow: var(--shadow-card);
+}
+
+.club-shots__beam img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 758;
+  object-fit: cover;
+}
+
+.club-shots__beam figcaption {
+  padding: 12px 18px;
+  color: var(--text-on-dark-2);
+  font-size: var(--fs-cap);
+  font-weight: 700;
+}
+
+.club-link {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  color: var(--text-2);
+  word-break: keep-all;
+}
+
+.club-link a {
+  color: var(--violet);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .club-shots {
+    grid-template-columns: 1fr;
+  }
+}
