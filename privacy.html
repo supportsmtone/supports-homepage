@@ -69,14 +69,48 @@
       overflow-wrap: anywhere;   /* 긴 영문 토큰은 분리 — 소형 화면 가로넘침 방지 */
     }
     th { background: #f4f5fb; }
+    /* 2026-11-17 개정 안내(추가만) */
+    .revision-notice {
+      margin: 0 0 18px;
+      padding: 16px 18px;
+      border: 1px solid #d8b4fe; /* 홈페이지 --violet-line */
+      border-left: 4px solid var(--brand);
+      border-radius: 12px;
+      background: #f3e8ff; /* 홈페이지 --violet-bg */
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .revision-notice-title { margin: 0 0 8px; font-weight: 700; color: var(--brand); font-size: 1rem; }
+    .revision-notice-quote {
+      margin: 8px 0;
+      padding: 10px 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .revision-notice ul { margin: 8px 0 8px 20px; }
+    .revision-notice p, .revision-notice li { font-size: 0.94rem; }
+    .revision-added { color: var(--text); }
+    .revision-date { color: var(--brand); font-weight: 700; white-space: nowrap; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <h1>써포츠 개인정보처리방침</h1>
+      <div class="revision-notice" role="note" aria-label="개인정보처리방침 개정 안내">
+        <p class="revision-notice-title">개인정보처리방침 개정 안내(2026년 11월 17일)</p>
+        <p>2026년 11월 24일부터 아래 내용이 추가됩니다(추가 위치: 제2조 3) 서비스 이용 과정).</p>
+        <p class="revision-notice-quote">참가한 대회의 대진표·결과(이름 또는 닉네임, 코트, 경기 시각, 리그, 점수)는 서비스 이용자가 볼 수 있으며, 대회 당일에는 같은 모임 회원의 앱 화면(모임 회원 경기)에도 표시됩니다. 전화번호·생년월일은 표시되지 않으며, 만 14세 미만 회원과 차단한 회원 사이에는 표시되지 않습니다.</p>
+        <ul>
+          <li>대회 당일, 같은 모임 친구의 경기(코트·시각·점수)가 홈과 대회 LIVE 화면에 따로 설정하지 않아도 보여요.</li>
+          <li>보이는 정보는 대진표에 이미 공개된 내용과 같고, 전화번호·생년월일은 보이지 않아요.</li>
+          <li>만 14세 미만 회원과 서로 차단한 회원 사이에는 보이지 않아요.</li>
+        </ul>
+        <p>문의: 고객 문의 010-5843-0703 (문자), tjvhcm@gmail.com (제11조)</p>
+      </div>
       <div class="meta">
-        시행일: 2026년 6월 25일<br>
+        시행일: 2026년 6월 25일 (개정 2026년 11월 24일 시행)<br>
         본 방침은 써포츠 서비스(모바일 앱, 웹, 어드민, 스코어보드)에 적용됩니다.
       </div>
 
@@ -110,6 +144,7 @@
         <li>디바이스 정보, 앱 버전, 접속 IP, 로그 기록, 오류 로그</li>
         <li>푸시 토큰(FCM), 알림 수신 설정</li>
       </ul>
+      <p class="revision-added">참가한 대회의 대진표·결과(이름 또는 닉네임, 코트, 경기 시각, 리그, 점수)는 서비스 이용자가 볼 수 있으며, 대회 당일에는 같은 모임 회원의 앱 화면(모임 회원 경기)에도 표시됩니다. 전화번호·생년월일은 표시되지 않으며, 만 14세 미만 회원과 차단한 회원 사이에는 표시되지 않습니다. <span class="revision-date">(2026년 11월 24일 시행)</span></p>
       <p><strong>4) 위치 정보 관련</strong></p>
       <ul>
         <li>구장 기능에서 기기 위치 권한을 요청할 수 있으며, 주변 검색/거리 계산에 사용됩니다.</li>
@@ -225,8 +260,8 @@
       </p>
 
       <p class="muted">
-        최종 수정일: 2026년 6월 25일<br>
-        시행일: 2026년 6월 25일
+        최종 수정일: 2026년 11월 17일<br>
+        시행일: 2026년 6월 25일 (개정 2026년 11월 24일 시행)
       </p>
 
       <a class="back" href="index.html">홈으로 돌아가기</a>
