@@ -1480,3 +1480,86 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══ 2026-11-15 「웹에서도」 구역(홈 #web) 시안 — 추가만 · 바탕은 브랜드 그라데이션(--grad) ═══ */
+.web-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(28px, 5vw, 56px);
+  border-radius: calc(var(--r-lg) + 6px);
+  background: var(--grad);
+  color: var(--on-violet);
+  box-shadow: 0 18px 44px rgba(124, 58, 237, 0.28);
+  overflow: hidden;
+}
+
+.web-band .eyebrow {
+  color: var(--on-violet);
+}
+
+.web-band .eyebrow::before {
+  background: var(--on-violet);
+}
+
+.web-band h2 {
+  color: var(--on-violet);
+  font-size: var(--fs-h2);
+  margin-bottom: 14px;
+  word-break: keep-all;
+}
+
+.web-band p {
+  color: var(--on-violet);
+  margin-bottom: 22px;
+  word-break: keep-all;
+}
+
+.web-band__btn {
+  background: var(--on-violet);
+  color: var(--violet-deep);
+  box-shadow: 0 8px 22px rgba(46, 16, 101, 0.28);
+}
+
+.web-band__url {
+  display: table;
+  margin-top: 12px;
+  font-size: var(--fs-cap);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--on-violet);
+  text-decoration: none;
+}
+
+.web-band__url:hover {
+  text-decoration: underline;
+}
+
+.web-band__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .web-band {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══ 2026-11-17 시작하기 CTA 아래 웹 버전 작은 글자 링크 — 추가만(스토어 버튼 무변경) ═══ */
+.cta-band .web-note {
+  position: relative;
+  margin: 18px 0 0;
+  font-size: var(--fs-cap);
+  color: var(--text-on-dark-2);
+  word-break: keep-all;
+}
+
+.cta-band .web-note a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
