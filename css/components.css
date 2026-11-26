@@ -1578,3 +1578,191 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* ═══ 2026-11-26 접수 중 대회(대회 탭 #dobong-women-youth · 홈 공지 띠) — 추가만 ═══ */
+.open-flag {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  padding: 7px 15px;
+  border-radius: var(--r-pill);
+  background: var(--lime);
+  color: var(--text);
+  font-size: var(--fs-cap);
+  font-weight: 900;
+  word-break: keep-all;
+}
+
+.open-flag b {
+  color: var(--violet-deep);
+}
+
+#dobong-women-youth h2 {
+  word-break: keep-all;
+}
+
+.wy-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.wy-poster {
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-dark);
+  box-shadow: var(--shadow-card);
+}
+
+.wy-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 900 / 1273;
+}
+
+.wy-poster figcaption {
+  padding: 10px 16px;
+  color: var(--text-on-dark-2);
+  font-size: var(--fs-cap);
+  font-weight: 700;
+}
+
+.wy-facts {
+  margin: 0 0 8px;
+  border-top: 1px solid var(--line);
+}
+
+.wy-facts div {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.wy-facts dt {
+  font-weight: 900;
+  color: var(--violet);
+  font-size: 0.92rem;
+}
+
+.wy-facts dd {
+  margin: 0;
+  font-size: 0.95rem;
+  word-break: keep-all;
+}
+
+.wy-sub {
+  margin: 24px 0 8px;
+  font-size: 1.05rem;
+}
+
+.wy-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.wy-table table {
+  margin: 0;
+}
+
+.wy-table th {
+  width: 76px;
+  white-space: nowrap;
+}
+
+.wy-list {
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.wy-list li {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: var(--text-2);
+  word-break: keep-all;
+}
+
+.wy-list b {
+  color: var(--text);
+  margin-right: 4px;
+}
+
+.wy-note,
+.wy-org {
+  margin-top: 8px;
+  font-size: var(--fs-cap);
+  color: var(--text-3);
+  word-break: keep-all;
+}
+
+.wy-org {
+  margin-top: 22px;
+  color: var(--text-2);
+}
+
+.wy-stores {
+  flex: 1 1 100%;
+}
+
+/* 홈 공지 띠 */
+.notice-band {
+  display: flex;
+  align-items: center;
+  gap: 10px 14px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  border-radius: var(--r-lg);
+  background: var(--grad);
+  color: var(--on-violet);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 26px rgba(124, 58, 237, 0.24);
+  word-break: keep-all;
+  transition: transform 0.15s var(--ease), box-shadow 0.2s ease;
+}
+
+.notice-band:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(124, 58, 237, 0.34);
+}
+
+.notice-band__tag {
+  flex: none;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--lime);
+  color: var(--text);
+  font-size: var(--fs-cap);
+  font-weight: 900;
+}
+
+.notice-band__text {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.notice-band__go {
+  flex: none;
+  font-size: var(--fs-cap);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .wy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wy-poster {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}

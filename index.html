@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>써포츠 — 생활스포츠 매칭 플랫폼 | 모임·대회·구장을 한 앱에서</title>
-  <meta name="description" content="배드민턴부터 클라이밍까지 12개 종목. 운동 모임, 자동 대진표, 대회 참가와 실시간 점수, 대회 운영, 700개+ 구장 정보까지. 문자 인증으로 1분 만에 시작하세요.">
-  <meta property="og:title" content="써포츠 — 생활스포츠 매칭 플랫폼">
-  <meta property="og:description" content="혼자도 좋지만, 함께라면 더 빛나는 우리들의 플레이. 모임·뽐·대회·구장을 한 앱에서.">
+  <title>써포츠(서포츠) — 배드민턴 대회 접수·대진표, 모임·구장을 한 앱에서 | 생활스포츠 플랫폼</title>
+  <meta name="description" content="써포츠(서포츠, SUPPORTS)는 배드민턴 대회 접수·자동 대진표·실시간 점수와 운동 모임·구장 정보를 한 앱에서 쓰는 생활스포츠 플랫폼입니다. 배드민턴부터 클라이밍까지 12개 종목, 대회 운영, 700개+ 구장 정보까지. 문자 인증으로 1분 만에 시작하세요.">
+  <meta property="og:title" content="써포츠(서포츠) — 배드민턴 대회 접수·대진표, 모임·구장을 한 앱에서">
+  <meta property="og:description" content="써포츠(서포츠, SUPPORTS)는 배드민턴 대회 접수·자동 대진표·실시간 점수와 운동 모임·구장 정보를 한 앱에서 쓰는 생활스포츠 플랫폼입니다. 12개 종목·700개+ 구장 정보.">
   <meta property="og:image" content="https://supportsmt.com/assets/og_ci.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://supportsmt.com/">
@@ -15,11 +15,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css?v=20261118a">
-  <link rel="stylesheet" href="css/base.css?v=20261118a">
-  <link rel="stylesheet" href="css/layout.css?v=20261118a">
-  <link rel="stylesheet" href="css/components.css?v=20261118a">
+  <link rel="stylesheet" href="css/tokens.css?v=20261126a">
+  <link rel="stylesheet" href="css/base.css?v=20261126a">
+  <link rel="stylesheet" href="css/layout.css?v=20261126a">
+  <link rel="stylesheet" href="css/components.css?v=20261126a">
   <script>document.documentElement.classList.add("js");</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "써포츠",
+    "alternateName": ["서포츠", "Supports", "SUPPORTS", "써포츠 앱"],
+    "url": "https://supportsmt.com/",
+    "logo": "https://supportsmt.com/assets/ci_symbol.png",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCSKQ8RcZ2vwnTKWcPR5_VtA",
+      "https://apps.apple.com/kr/app/id6758224083",
+      "https://play.google.com/store/apps/details?id=com.supports.app"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "써포츠",
+    "alternateName": ["서포츠", "Supports", "SUPPORTS", "써포츠 앱"],
+    "url": "https://supportsmt.com/",
+    "inLanguage": "ko-KR"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "써포츠",
+    "operatingSystem": "ANDROID, IOS",
+    "applicationCategory": "SportsApplication",
+    "inLanguage": "ko-KR",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "installUrl": ["https://play.google.com/store/apps/details?id=com.supports.app", "https://apps.apple.com/kr/app/id6758224083"],
+    "downloadUrl": ["https://play.google.com/store/apps/details?id=com.supports.app", "https://apps.apple.com/kr/app/id6758224083"]
+  }
+  </script>
   <style>
     /* index 전용 — 히어로 */
     .hero { position: relative; padding: 150px 0 88px; overflow: hidden; }
@@ -251,6 +289,14 @@
           <img src="assets/app2/home.png" alt="써포츠 앱 홈 화면 — LIVE 대회 배너, 추천 대회, 하단 5개 탭" loading="eager">
         </div>
       </div>
+    </div>
+    <!-- 접수 중 대회 공지 띠 (2026-11-26 추가) -->
+    <div class="container" style="position: relative; margin-top: clamp(48px, 6vw, 56px);">
+      <a class="notice-band" href="tournaments.html#dobong-women-youth">
+        <span class="notice-band__tag">접수 중</span>
+        <span class="notice-band__text">제2회 도봉구 여성·청년회 배드민턴대회 · 12.19~20 다락원 실내배드민턴장 · 12월 9일 마감</span>
+        <span class="notice-band__go">요강 보기 →</span>
+      </a>
     </div>
   </section>
 
@@ -701,7 +747,7 @@
   </div>
 </div>
 
-<script src="js/main.js?v=20261118a" defer></script>
+<script src="js/main.js?v=20261126a" defer></script>
 <script>
 /* 대회 포스터 팝업 — 대회일(2026-09-05) 지나면 자동 미노출, "오늘 하루 보지 않기" localStorage */
 (function () {
